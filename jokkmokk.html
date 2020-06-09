@@ -1,0 +1,37 @@
+<html>
+<head>
+  <title>Correspondant à Jokkmokk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script async="defer" src="jokkmokk.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container jokkmokk">
+    <section><h1 style="text-align:center">Navigateur de votre correspondant à Jokkmokk</h1></section>
+    <section>
+      <p>Collez l'offre de session SDP en provenance de votre correspondant :</p>
+      <button id="pasteSDPOfferBtn" onclick="pasteSDPOffer()">Répondre à une offre</button>
+    </section>
+    <section>
+      <p>Ensuite, envoyez la réponse à l'offre à votre correspondant :</p>
+      <textarea id="sdpAnswerTextarea" readonly>Votre réponse à la session SDP (à transmettre à votre correspondant) apparaitra ici.</textarea>
+    </section>
+    <section>
+      <p>Lorsqu'ils sont disponibles, transmettez les informations ICE vous concernant à votre correspondant  :</p>
+      <div>Etat ICE : <span id="iceState" class="gray">inconnu</span></div>
+      <textarea id="iceCandidatesTextarea" readonly>Les candidats ICE qui vous caractérisent (à transmettre à votre correspondant) apparaitront ici.
+L'état peut rester sur "gathering" pendant une minute environ.
+      </textarea>
+    </section>
+    <section>
+      <p>Collez les caractéristiques ICE que votre correspondant vous a envoyées</p>
+      <button id="pasteIceCandidatesBtn" disabled="disabled" onclick="pasteIceCandidates()">Collez les candidats ICE</button>
+    </section>
+    <section>
+      <p>Enfin, envoyez un message à votre correspondant</p>
+      <div>Etat du canal : <span id="chanelState" class="gray">inconnu</span></div>
+      <button id="sendMessageBtn" onclick="send()" disabled="disabled">Envoyer un message</button>
+    </section>
+  </div>
+</body>
+</html>

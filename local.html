@@ -1,0 +1,39 @@
+<html>
+<head>
+  <title>Envoi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script async="defer" src="local.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <section><h1 style="text-align:center">Démo connexion WebRTC</h1></section>
+    <section>
+      <p>Tout d'abord, créons une offre de session SDP :</p>
+      <button id="createOfferBtn" onclick="createOffer()">Créer une offre</button><br>
+      <p>Lorsqu'elles seront disponibles, recopiez les données ci-dessous et transmettez-les à votre correspondant de Jokkmokk.</p>
+      <textarea id="sdpOfferTextarea" readonly>Votre offre de session SDP à transmettre apparaitra ici.</textarea>
+    </section>
+    <section>
+      <p>Collez la réponse SDP en provenance de votre correspondant lorsque ce dernier vous aura répondu.</p>
+      <button id="pasteSDPAnswerBtn" onclick="pasteSDPAnswer()" disabled="disabled">J'ai reçu une réponse SDP</button>
+    </section>
+    <section>
+      <p>À tout moment, transmettez-lui également vos caractéristiques ICE lorsqu'elles seront disponibles (~1min)</p>
+      <div>Etat ICE : <span id="iceState" class="gray">inconnu</span></div>
+      <textarea id="iceCandidatesTextarea" readonly>Les candidats ICE qui vous caractérisent (à transmettre à votre correspondant de Jokkmokk) apparaitront ici.
+L'état peut rester sur "gathering" pendant une minute environ.
+      </textarea>
+    </section>
+    <section>
+      <p>Collez les caractéristiques ICE que votre correspondant de Jokkmokk vous a envoyées</p>
+      <button id="pasteICECandidateBtn" onclick="pasteIceCandidates()" disabled="disabled">J'ai reçu un candidat ICE</button>
+    </section>
+    <section>
+      <p>Dès que le canal sera ouvert, vous pourrez enfin envoyer un message à votre correspondant !</p>
+      <div>Etat du canal : <span id="chanelState" class="gray">inconnu</span></div>
+      <button id="sendMessageBtn" onclick="send()" disabled="disabled">Envoyer un message</button>
+    </section>
+  </div>
+</body>
+</html>
